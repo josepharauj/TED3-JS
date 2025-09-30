@@ -1,0 +1,31 @@
+function calcularTotal() {
+    let precoProduto = parseFloat(prompt("Digite o preço do produto: "));
+    let quantProduto = parseFloat(prompt("Digite a quantidade: "));
+
+    let precoCompra = precoProduto * quantProduto;
+
+    return { precoProduto, quantProduto, precoCompra };
+}
+
+function aplicarDesconto(precoCompra) {
+    if (precoCompra > 100) {
+        return precoCompra * 0.9;
+    } else {
+        return precoCompra;
+    }
+}
+
+function exibirResumo() {
+    let { precoProduto, quantProduto, precoCompra } = calcularTotal();
+    let precoComDesconto = aplicarDesconto(precoCompra);
+
+    alert(
+        "Preço por produto: R$ " + precoProduto.toFixed(2) +
+        "\nQuantidade: " + quantProduto +
+        "\nPreço da compra (antes do desconto): R$ " + precoCompra.toFixed(2) +
+        "\nPreço da compra (após desconto, se houver): R$ " + precoComDesconto.toFixed(2)
+    );
+}
+
+
+exibirResumo();
